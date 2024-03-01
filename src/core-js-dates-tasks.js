@@ -206,18 +206,14 @@ function getWeekNumberByDate(date) {
   let week = 0;
 
   if (firstWeek === 0) {
-    startNewWeek = 2;
-    week += 1;
-  } else if (firstWeek === 1) {
     startNewWeek = 1;
   } else {
-    startNewWeek = 7 - firstWeek + 2;
+    startNewWeek = 7 - firstWeek;
     week += 1;
   }
 
   const timeStDate = copy.getTime();
   let startWeekTimeSt = date.setDate(startNewWeek);
-
   while (timeStDate >= startWeekTimeSt) {
     startWeekTimeSt = date.setDate(date.getDate() + 7);
     week += 1;
